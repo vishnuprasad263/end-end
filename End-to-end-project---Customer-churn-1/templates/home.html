@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn</title>
+    <style>
+        body {
+            background-color: rgb(209, 141, 227);
+            font-family: Arial, sans-serif;
+        }
+        .login-box {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #d18de3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .form-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Customer Churn Prediction</h2>
+        <form action="/login" method="POST" id="loginForm">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div class="form-container" id="predictionForm">
+        <h2><center><u> CUSTOMER CHURN PREDICTION </u></center></h2>
+        <form action="/" method="POST">
+            <fieldset>
+                <center>
+                    <div class="form">
+                        <label for="Dependents">Dependents:</label><br>
+                        <input style="background-color: gold;" type="text" name="Dependents" id="Dependents" value="" ><br>
+   
+                        <label for="tenure">tenure:</label><br>
+                        <input style="background-color: gold;" type="number" name="tenure" id="tenure" value=""/><br>
+   
+                        <label for="OnlineSecurity"> OnlineSecurity:</label><br>
+                        <input style="background-color: gold;" type="text" name="OnlineSecurity" id="OnlineSecurity" value=""><br>
+   
+                        <label for="OnlineBackup">OnlineBackup:</label><br>
+                        <input style="background-color: gold;" type="text" name="OnlineBackup" id="OnlineBackup" value=""><br>
+   
+                        <label for="DeviceProtection">DeviceProtection:</label><br>
+                        <input style="background-color: gold;" type="text" name="DeviceProtection" id="DeviceProtection" value=""><br>
+   
+                        <label for="TechSupport">TechSupport:</label><br>
+                        <input style="background-color: gold;" type="text" name="TechSupport" id="TechSupport" value=""><br>
+   
+                        <label for="Contract">Contract:</label><br>
+                        <input style="background-color: gold;" type="text" name="Contract" id="Contract" value=""><br>
+   
+                        <label for="PaperlessBilling">PaperlessBilling:</label><br>
+                        <input style="background-color: gold;" type="text" name="PaperlessBilling" id="PaperlessBilling" value=""><br>
+   
+                        <label for="MonthlyCharges">MonthlyCharges:</label><br>
+                        <input style="background-color: gold;" type="text" name="MonthlyCharges" id="MonthlyCharges" value=""><br>
+   
+                        <label for="TotalCharges">TotalCharges:</label><br>
+                        <input style="background-color: gold;" type="text" name="TotalCharges" id="TotalCharges" value=""><br>
+                    </div>
+   
+                    <div class="col-sm-3">
+                        <button style="background-color:red;border-color:powderblue;color:white" type="submit" class="btn btn-primary" name="submit">SUBMIT</button>
+                    </div>
+                 
+   
+                    </div>
+
+                    
+                </center>
+            </fieldset>
+        </form>
+
+        <div class="form">
+            <center><br>
+                <output> <strong>{{op1}}</strong></output><br><output><strong>{{op2}}</strong></output>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementsByName('username')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+
+            // Here, you need to implement your login authentication logic.
+            // For demonstration purposes, let's assume the login is successful if both fields are filled.
+            if (username && password) {
+                document.querySelector('.login-box').style.display = 'none';
+                document.querySelector('.form-container').style.display = 'block';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
